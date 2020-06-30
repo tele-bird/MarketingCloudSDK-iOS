@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // The appID, accessToken and appEndpoint are required values for MobilePush SDK configuration.
     // See https://salesforce-marketingcloud.github.io/MarketingCloudSDK-iOS/get-started/apple.html for more information.
     
-    let appID = "<your appID here>"
-    let accessToken = "<your accessToken here>"
-    let appEndpoint = "<your appEndpoint here>"
-    let mid = "<your account MID here>"
+    let appID = "cfee803a-4647-436b-a608-50acd64d9788"
+    let accessToken = "TZAD0fNcj4Ebuq1XwxeXofXN"
+    let appEndpoint = "https://mcv1c7wjd73hvqzw79jk78kw8hc0.device.marketingcloudapis.com/"
+    let mid = "7290977"
 
     // Define features of MobilePush your app will use.
     let inbox = true
