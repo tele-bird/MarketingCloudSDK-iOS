@@ -57,10 +57,31 @@ class ViewController: UIViewController {
     }
 
     @IBAction func setRegistrationValues(_ sender: Any) {
-        MarketingCloudSDK.sharedInstance().sfmc_setContactKey("yourusername@example.com")
-        MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("LastName", value: "Smith")
-        MarketingCloudSDK.sharedInstance().sfmc_addTag("Camping")
-    }
 
+        // anonymous user:
+        let uuid = UUID.init()
+        let anonymousKey = uuid.uuidString
+        var hasLoggedIn = false
+        var isLoggedIn = false;
+        MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("HasLoggedIn", value: hasLoggedIn.description)
+        MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("IsLoggedIn", value: isLoggedIn.description)
+        MarketingCloudSDK.sharedInstance().sfmc_setContactKey(anonymousKey)
+        print("Created anonymous Contact with Key: " + anonymousKey + " and IsLoggedIn: " + isLoggedIn.description)
+
+        // logged in user:
+        let emailAddress = "phil123456789@reg.com"
+        hasLoggedIn = true
+        isLoggedIn = true
+        MarketingCloudSDK.sharedInstance().sfmc_setContactKey(emailAddress)
+        MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("HasLoggedIn", value: hasLoggedIn.description)
+        MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("IsLoggedIn", value: isLoggedIn.description)
+        print("Marked Contact with Key: " + emailAddress + " as HasLoggedIn: " + hasLoggedIn.description + " and IsLoggedIn: " + isLoggedIn.description)
+
+        // logged out user:
+        isLoggedIn = false
+        MarketingCloudSDK.sharedInstance().sfmc_setContactKey(emailAddress)
+        MarketingCloudSDK.sharedInstance().sfmc_setAttributeNamed("IsLoggedIn", value: isLoggedIn.description)
+        print("Marked Contact with Key: " + emailAddress + " as IsLoggedIn:" + isLoggedIn.description )
+    }
 }
 

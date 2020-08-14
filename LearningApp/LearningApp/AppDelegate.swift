@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // The appID, accessToken and appEndpoint are required values for MobilePush SDK configuration.
     // See https://salesforce-marketingcloud.github.io/MarketingCloudSDK-iOS/get-started/apple.html for more information.
     
+    // app: com.keurig.kconnect-nonpublic
+    //let appID = "d3e6b3d3-736b-4efa-9020-00a3b44c2c79"
+    //let accessToken = "iJ59O1inWLUiR0XNZ5BPXAKP"
+    //let appEndpoint = "https://mcv1c7wjd73hvqzw79jk78kw8hc0.device.marketingcloudapis.com/"
+    //let mid = "7290977"
+    
+    // app: kdppoc
     let appID = "cfee803a-4647-436b-a608-50acd64d9788"
     let accessToken = "TZAD0fNcj4Ebuq1XwxeXofXN"
     let appEndpoint = "https://mcv1c7wjd73hvqzw79jk78kw8hc0.device.marketingcloudapis.com/"
@@ -41,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .sfmc_setInboxEnabled(inbox as NSNumber)
             .sfmc_setLocationEnabled(location as NSNumber)
             .sfmc_setAnalyticsEnabled(pushAnalytics as NSNumber)
+            .sfmc_setDelayRegistration(untilContactKeyIsSet: true)
             .sfmc_build()!
         
         var success = false
